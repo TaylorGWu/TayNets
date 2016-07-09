@@ -9,7 +9,7 @@
 #include "resource/HttpResource.h"
 #include "base/MyTime.h"
 #include "HttpMessageTool.h"
-#include "HttpProtocol.h"
+#include "web/protocol/HttpProtocol.h"
 #include "base/FileTool.h"
 #include "nets/NetSendTool.h"
 #include "cache/Cache.h"
