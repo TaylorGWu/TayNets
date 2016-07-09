@@ -1,0 +1,72 @@
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: transparent;
+}
+
+.form-login,.form-register,#myTab {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-login .form-login-heading,
+.form-register .form-register-heading
+.form-login .checkbox {
+    margin-bottom: 10px;
+}
+.form-login .checkbox {
+    font-weight: normal;
+}
+.form-login .form-control
+.form-register .form-control{
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-login .form-control:focus
+.form-register .form-control:focus{
+    z-index: 2;
+}
+.form-login input[type="text"] 
+.form-register input[type="text"]
+{
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-login input[type="password"] 
+.form-register input[type="text"]{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#pageHeader 
+{
+  height: 100px;
+  margin-top: -60px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+#postersSlide
+{
+    margin-left: 30px;
+}
+
+#loginAndRegister
+{
+  margin-top: 80px;
+}
+
+#loginAndRegisterTable
+{
+  
+}

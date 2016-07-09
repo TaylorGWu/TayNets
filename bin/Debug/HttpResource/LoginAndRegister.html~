@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录/注册页面</title>
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/animate.css" rel="stylesheet"><!--海报切换框css-->
+    <link href="/resources/css/loginAndRegister.css" rel="stylesheet"> 
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body onload="startPosterSlide()">
+<div id='pageHeader' class="page-header">
+      <h1>欢迎登陆<small>属于你的小天地</small></h1>
+</div>
+
+<div id='loginAndRegister' class="row">
+    <div id='postersSlide' class="about-of-me col-sm-6 col-md-4">
+        <img src="resources/posters/theFaultInOurStars.jpg" id="myPic" height="380" width='590' class="animated "/>
+    </div> 
+
+    <div id='loginAndRegisterTable' class="container col-sm-5 col-md-4">
+
+        <ul class="nav nav-tabs nav-justified" role="tablist" id="myTab">
+            <li class="active"><a href="#login" role="tab" data-toggle="tab">登录</a></li>
+            <li><a href="#register" role="tab" data-toggle="tab">注册</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="login">
+                <form class="form-login" action="" method="post">
+                    <h2 class="form-login-heading">登录</h2>
+                    <label for="inputName" class="sr-only">Account Name</label>
+                    <input type="text" id="inputName" class="form-control" placeholder="请输入会员名称" required autofocus>
+                    <br>
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="请输入密码" required>
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="remember-me">下次自动登录
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+                    <br>
+
+                    <div class="pull-right">
+                        <a href="#">忘记密码</a>&nbsp;&nbsp;
+                        <a href="#">短信登录</a>
+                    </div>
+                </form>
+
+            </div>
+            <div class="tab-pane" id="register">
+                <form class="form-register" action="" method="post">
+                    <h2 class="form-register-heading">注册</h2>
+                    <label for="userName" class="sr-only">Account Name</label>
+                    <input type="text" id="userName" class="form-control" placeholder="注册新帐号" required autofocus>
+                    <br>
+                    <label for="passwd" class="sr-only">Password</label>
+                    <input type="password" id="passwd" class="form-control" placeholder="为新帐号设置密码" required><br>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script src="resources/js/jquery-1.9.1.js"></script>
+<script src="resources/js/bootstrap.js"></script>
+<script src="resources/js/thereSomeThingAboutMe.js"></script><!--海报切换框js--> 
+<script src="resources/js/loginAndRegister.js"></script>   
+
+
+</body>
+</html>
+
+
