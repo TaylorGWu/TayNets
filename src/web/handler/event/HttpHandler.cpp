@@ -1,4 +1,4 @@
-#include "HttpHandler.h"
+#include "web/handler/event/HttpHandler.h"
 
 string HttpHandler::cwd = "";
 
@@ -34,9 +34,10 @@ void HttpHandler::parseRequestMessage()
     /*
     cout<<"Method:"<<requireMethod<<"------"<<"requireFile:"<<requireFile<<"-----"<<requireHttpVersion<<endl;
     cout<<"header filed;"<<endl;
-    for (vector<string>::iterator it = headerFiled.begin(); it != headerFiled.end(); it++)
-        cout<<*it<<endl;
     */
+    for (map<string, string>::iterator it = messageEntity.begin(); it != messageEntity.end(); it++)
+        cout<<it->second<<endl;
+
     this->methodHandler();
 }
 

@@ -1,7 +1,7 @@
 #ifndef RESTRICTIONAREA_H
 #define RESTRICTIONAREA_H
 
-#include "definition.h"
+#include "protocol/definition.h"
 #include <iostream>
 #include <unistd.h>
 #include <pthread.h>

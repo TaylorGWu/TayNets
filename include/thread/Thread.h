@@ -4,10 +4,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "EventHandler.h"
+#include "event/EventHandler.h"
 #include "RestrictionArea.h"
-#include "definition.h"
-#include "Handler.h"
+#include "protocol/definition.h"
+#include "event/Handler.h"
 
 #include <string.h>
 #include <errno.h>

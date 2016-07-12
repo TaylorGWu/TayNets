@@ -4,11 +4,11 @@
 #include <unistd.h>
 #include <vector>
 
-#include "RoundRobinAlgorithm.h"
-#include "RandomDispatch.h"
+#include "algorithm/dispatch/RoundRobinAlgorithm.h"
+#include "algorithm/dispatch/RandomDispatch.h"
 #include "Server.h"
-#include "Handler.h"
-#include "EventHandler.h"
+#include "event/Handler.h"
+#include "event/EventHandler.h"
 #include "MyEventHandler.h"
 #include "regex/URLRegexParser.h"
 

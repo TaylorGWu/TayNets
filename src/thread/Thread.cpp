@@ -1,4 +1,4 @@
-#include "Thread.h"
+#include "thread/Thread.h"
 
 Thread::Thread() : LOOP_INTERVAL_TIME(2)
 {

@@ -1,4 +1,4 @@
-#include "RandomDispatch.h"
+#include "algorithm/dispatch/RandomDispatch.h"
 
 RandomDispatch::RandomDispatch(int loopThread)
 {

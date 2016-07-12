@@ -1,8 +1,8 @@
 #ifndef MYEVENTHANDLER_H
 #define MYEVENTHANDLER_H
 
-#include "EventHandler.h"
-#include "HttpHandler.h"
+#include "event/EventHandler.h"
+#include "web/handler/event/HttpHandler.h"
 
 class MyEventHandler : public EventHandler
 {

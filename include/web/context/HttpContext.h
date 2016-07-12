@@ -14,6 +14,13 @@ class HttpContext
     public:
         HttpContext(int, char*, string, string, string, vector<string>, map<string, string>, unsigned long);
         virtual ~HttpContext();
+        string getRequireMethod();
+        string getRequireFile();
+        string getRequireHttpVersion();
+        string getHeaderFleldArgument(string);          // get the required headerfield
+        string getPostArgument(string);       // get post argument
+        string getGetArgument(string);        // get get argument
+
     protected:
     private:
         char requestMessage[MAX_REQUEST_SIZE];
@@ -21,7 +28,7 @@ class HttpContext
         string requireMethod;          //record this request's method
         string requireFile;                 //record this request's requireFile
         string requireHttpVersion;    //record this request's httpVersion
-        vector<string> headerFiled;     //record this request's http headerFiled
+        vector<string> headerField;     //record this request's http headerFiled
         map<string, string> messageEntity;      //record this request's HttpMessageEntity
         unsigned long contentLength;        //response must contain in http Mode
 };

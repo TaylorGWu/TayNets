@@ -2,7 +2,7 @@
 #define RANDOMDISPATCH_H
 #include <time.h>
 #include <stdlib.h>
-#include "DispatchAlgorithm.h"
+#include "algorithm/dispatch/base/DispatchAlgorithm.h"
 class RandomDispatch : public DispatchAlgorithm
 {
 public:

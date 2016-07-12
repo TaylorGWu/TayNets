@@ -1,4 +1,4 @@
-#include "RoundRobinAlgorithm.h"
+#include "algorithm/dispatch/RoundRobinAlgorithm.h"
 
 RoundRobinAlgorithm::RoundRobinAlgorithm(int loopThread)
 {

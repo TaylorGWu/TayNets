@@ -3,7 +3,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
-#include "DispatchAlgorithm.h"
+#include "algorithm/dispatch/base/DispatchAlgorithm.h"
 
 #include <stdlib.h>
 #include <stdio.h>

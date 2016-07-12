@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <errno.h>
 #include <unistd.h>
-#include "definition.h"
+#include "protocol/definition.h"
 using namespace std;
 class BasicReadWrite
 {
