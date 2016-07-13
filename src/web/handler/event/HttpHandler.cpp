@@ -29,14 +29,14 @@ void HttpHandler::parseRequestMessage()
     this->requireMethod = httpMessageTool.getMethod();
     this->requireFile = httpMessageTool.getRequireFile();
     this->requireHttpVersion = httpMessageTool.getRequireHttpVersion();
-    this->headerFiled = httpMessageTool.getHeaderField();
+    this->headerField = httpMessageTool.getHeaderField();
     this->messageEntity = httpMessageTool.getMessageEntity();
     /*
     cout<<"Method:"<<requireMethod<<"------"<<"requireFile:"<<requireFile<<"-----"<<requireHttpVersion<<endl;
     cout<<"header filed;"<<endl;
     */
-    for (map<string, string>::iterator it = messageEntity.begin(); it != messageEntity.end(); it++)
-        cout<<it->second<<endl;
+    for (map<string, string>::iterator it = headerField.begin(); it != headerField.end(); it++)
+        cout<<it->first<<":"<<it->second<<endl;
 
     this->methodHandler();
 }

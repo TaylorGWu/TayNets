@@ -66,12 +66,22 @@ string HttpMessageTool::getRequireHttpVersion()
     return requireLineContent[2];
 }
 
-vector<string> HttpMessageTool::getHeaderField()
+map<string, string> HttpMessageTool::getHeaderField()
 {
     vector<string> httpContentTemp = httpContent;
+    map<string, string> headerFieldMap;
+
+    /* remove message entity and require line */
+    httpContentTemp.pop_back();
     vector<string>::iterator it = httpContentTemp.begin();
     httpContentTemp.erase(it);
-    return httpContentTemp;
+
+    for (it = httpContentTemp.begin(); it != httpContentTemp.end(); it++)
+    {
+        vector<string> headerFieldItem = this->explode(*it, ":");
+        headerFieldMap.insert(map<string, string>::value_type(headerFieldItem[0], headerFieldItem[1]));
+    }
+    return headerFieldMap;
 }
 
 /* parse and return entity */

@@ -19,7 +19,7 @@ class HttpMessageTool
         string getMethod();
         string getRequireFile();
         string getRequireHttpVersion();
-        vector<string> getHeaderField();
+        map<string, string> getHeaderField();       // get header field
     protected:
     private:
         vector<string> httpContent;

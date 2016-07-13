@@ -37,7 +37,7 @@ class HttpHandler
         string requireMethod;          //record this request's method
         string requireFile;     //record this request's requireFile
         string requireHttpVersion;    //record this request's httpVersion
-        vector<string> headerFiled;     //record this request's http headerFiled
+        map<string, string> headerField;     //record this request's http headerFiled
         map<string, string> messageEntity;      //record this request's HttpMessageEntity
         unsigned long contentLength;        //response must contain in http Mode
 
