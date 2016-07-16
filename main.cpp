@@ -25,35 +25,7 @@ void readTest(int socketFd)
     handler->echo(socketFd);
 }
 
-
-class Handler1: public RequestHandler
-{
-    public:
-        Handler1()
-        {
-            cout<<"construct Handler1"<<endl;
-        }
-
-        void echo()
-        {
-            cout<<"testing"<<endl;
-        }
-};
-
-class Handler2: public RequestHandler
-{
-    public:
-        Handler2()
-        {
-            cout<<"construct Handler2"<<endl;
-        }
-
-        void echo()
-        {
-            cout<<"testing"<<endl;
-        }
-};
-
+/*
 class HandlerConstructor
 {
     public:
@@ -67,10 +39,12 @@ class HandlerConstructor
             return new Handler2();
         }
 };
+*/
 
 int main(int argc,char *argv[])
 {
     map<string, RequestHandler* (*)()> myMap;
+    /*
     myMap.insert(map<string, RequestHandler* (*)()>::value_type("/MainHandler/([a-zA-z0-9]+)/([a-zA-z0-9]+)", &HandlerConstructor::getHandler1));
     myMap.insert(map<string, RequestHandler* (*)()>::value_type("/TopicHandler/(.*)/(.*)/(.*)", &HandlerConstructor::getHandler2));
     URLRegexParser::init(&myMap);
@@ -97,14 +71,13 @@ int main(int argc,char *argv[])
     {
         cout<<"not match"<<endl;
     }
-
+    */
 
     if(argc != 3 )
     {
         perror("parameter error!");
         return -1;
     }
-
 
     int port = atoi(argv[1]);         //get port
     int threadNum = atoi(argv[2]);

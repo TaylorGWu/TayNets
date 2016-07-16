@@ -11,16 +11,9 @@
 #include <map>
 #include <regex.h>
 #include <sys/types.h>
+#include "web/handler/request/RequestHandler.h"
 
 using namespace std;
-class RequestHandler
-{
-    public:
-        virtual void echo()
-        {
-            cout<<"base"<<endl;
-        }
-};
 
 class URLRegexParser
 {

@@ -17,7 +17,8 @@ class HttpMessageTool
         map<string, string> getMessageEntity();          // get post parameter
         map<string, string> getQueryParams();      //  get get parameter
         string getMethod();
-        string getRequireFile();
+        string getRequireFile();    // get require file
+        string getRequireResource();    // get require file and query params
         string getRequireHttpVersion();
         map<string, string> getHeaderField();       // get header field
     protected:

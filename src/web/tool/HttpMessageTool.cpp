@@ -22,7 +22,15 @@ vector<string> HttpMessageTool::explode(const string str, const string delimiter
     int strLen = str.length();
 
     if (0 == delimeterLen)
+    {
         return arr;
+    }
+
+    if (-1 == str.find(delimiter))      // not contains delimiter,and return the whole string stored in vector
+    {
+        arr.push_back(str);
+        return arr;
+    }
 
     int i = 0;
     int k = 0;
@@ -53,11 +61,24 @@ string HttpMessageTool::getMethod()
     return requireLineContent[0];
 }
 
-string HttpMessageTool::getRequireFile()
+string HttpMessageTool::getRequireResource()
 {
     //httpContent[0] means requireLine
     vector<string> requireLineContent = explode(httpContent[0], " ");
     return requireLineContent[1];
+}
+
+string HttpMessageTool::getRequireFile()
+{
+    string requireResource = this->getRequireResource();
+    vector<string> requireResourceVector = this->explode(requireResource, "?");     // XXX?aaa=bbb&ccc=ddd
+
+    /* judge whether requireResource is XXX?aaa=bbb or XXX*/
+    if (0 < requireResourceVector.size())
+    {
+        return requireResourceVector[0];
+    }
+    return requireResource;
 }
 
 string HttpMessageTool::getRequireHttpVersion()
@@ -72,7 +93,9 @@ map<string, string> HttpMessageTool::getHeaderField()
     map<string, string> headerFieldMap;
 
     /* remove message entity and require line */
-    httpContentTemp.pop_back();
+    httpContentTemp.pop_back();     // pop back message entity
+    httpContentTemp.pop_back();     // pop back header field's eof
+
     vector<string>::iterator it = httpContentTemp.begin();
     httpContentTemp.erase(it);
 
@@ -94,7 +117,10 @@ map<string, string> HttpMessageTool::getMessageEntity()
     for (vector<string>::iterator it = entityVector.begin(); it != entityVector.end(); it++)
     {
         vector<string> entityItem = this->explode(*it, "=");
-        messageEntity.insert(map<string, string>::value_type(entityItem[0], entityItem[1]));
+        if (2 == entityItem.size())     // "aaa=bbb" or only blank space after "header field"
+        {
+            messageEntity.insert(map<string, string>::value_type(entityItem[0], entityItem[1]));
+        }
     }
     return messageEntity;
 }
@@ -102,15 +128,22 @@ map<string, string> HttpMessageTool::getMessageEntity()
 /* parse and return query params */
 map<string, string> HttpMessageTool::getQueryParams()
 {
-    string requireFile = this->getRequireFile();
-    vector<string> requireFileVector = this->explode(requireFile, "?");     // XXX?aaa=bbb&ccc=ddd
-    vector<string> queryParamsVector = this->explode(requireFileVector[1], "&");
-    map<string, string> queryParams;
+    string requireResource = this->getRequireResource();
+    vector<string> requireResourceVector = this->explode(requireResource, "?");     // XXX?aaa=bbb&ccc=ddd
 
-    for (vector<string>::iterator it = queryParamsVector.begin(); it != queryParamsVector.end(); it++)
+    map<string, string> queryParams;
+    if (1 < requireResourceVector.size())
     {
-        vector<string> paramItem = this->explode(*it, "=");     // aaa=bbb
-        queryParams.insert(map<string, string>::value_type(paramItem[0], paramItem[1]));
+        vector<string> queryParamsVector = this->explode(requireResourceVector[1], "&");
+
+        for (vector<string>::iterator it = queryParamsVector.begin(); it != queryParamsVector.end(); it++)
+        {
+            vector<string> paramItem = this->explode(*it, "=");     // "aaa=bbb" or only blank space after "?"
+            if (2 == paramItem.size())
+            {
+                queryParams.insert(map<string, string>::value_type(paramItem[0], paramItem[1]));
+            }
+        }
     }
     return queryParams;
 }

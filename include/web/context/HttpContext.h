@@ -12,7 +12,7 @@ using namespace std;
 class HttpContext
 {
     public:
-        HttpContext(int, char*, string, string, string, vector<string>, map<string, string>, unsigned long);
+        HttpContext(int, char*, string, string, string, map<string, string>, map<string, string>, map<string, string>);
         virtual ~HttpContext();
         string getRequireMethod();
         string getRequireFile();
@@ -28,8 +28,9 @@ class HttpContext
         string requireMethod;          //record this request's method
         string requireFile;                 //record this request's requireFile
         string requireHttpVersion;    //record this request's httpVersion
-        vector<string> headerField;     //record this request's http headerFiled
+        map<string, string> headerField;     //record this request's http headerFiled
         map<string, string> messageEntity;      //record this request's HttpMessageEntity
+        map<string, string> queryParams;        // record this request's query params
         unsigned long contentLength;        //response must contain in http Mode
 };
 

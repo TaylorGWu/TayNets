@@ -13,6 +13,7 @@
 #include "base/FileTool.h"
 #include "nets/NetSendTool.h"
 #include "cache/Cache.h"
+#include "web/context/HttpContext.h"
 
 
 using namespace std;

@@ -31,13 +31,18 @@ void HttpHandler::parseRequestMessage()
     this->requireHttpVersion = httpMessageTool.getRequireHttpVersion();
     this->headerField = httpMessageTool.getHeaderField();
     this->messageEntity = httpMessageTool.getMessageEntity();
+    map<string, string> queryParams = httpMessageTool.getQueryParams();
+
+    HttpContext httpContext(this->socketFd, this->requestMessage, this->requireMethod, this->requireFile, this->requireHttpVersion, this->headerField, this->messageEntity, queryParams);
+    //cout<<httpContext.getHeaderFleldArgument("Accept-Encoding")<<endl;
     /*
     cout<<"Method:"<<requireMethod<<"------"<<"requireFile:"<<requireFile<<"-----"<<requireHttpVersion<<endl;
     cout<<"header filed;"<<endl;
     */
-    for (map<string, string>::iterator it = headerField.begin(); it != headerField.end(); it++)
+    /*
+    for (map<string, string>::iterator it = queryParams.begin(); it != queryParams.end(); it++)
         cout<<it->first<<":"<<it->second<<endl;
-
+    */
     this->methodHandler();
 }
 
@@ -76,7 +81,7 @@ void HttpHandler::methodHandler()
     {
         for (map<string, string>::iterator it = messageEntity.begin(); it != messageEntity.end(); it++)
         {
-            cout<<it->first<<":"<<it->second<<endl;
+            //cout<<it->first<<":"<<it->second<<endl;
         }
         string postResult = "{'result':'success'}";
         this->contentLength  = postResult.length();
